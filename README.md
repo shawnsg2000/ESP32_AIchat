@@ -1,55 +1,37 @@
-# 小智 AI 聊天机器人 （XiaoZhi AI Chatbot）
+# ESP32 AI Chatbot （AI Chatbot）
 
-（中文 | [English](README_en.md) | [日本語](README_ja.md)）
+Based on the 虾哥的Xiaozhi AI。
 
-这是虾哥的第一个硬件作品。
+Project Purpose
+This project is an open-source initiative released under the MIT license, allowing anyone to use it for free, including for commercial purposes.
 
-👉 [ESP32+SenseVoice+Qwen72B打造你的AI聊天伴侣！【bilibili】](https://www.bilibili.com/video/BV11msTenEH3/)
+Our goal with this project is to help more people get started with AI hardware development and understand how to integrate rapidly evolving large language models into real-world hardware devices. Whether you're a student interested in AI or a developer exploring new technologies, this project provides a valuable learning experience.
 
-👉 [给小智装上 DeepSeek 的聪明大脑【bilibili】](https://www.bilibili.com/video/BV1GQP6eNEFG/)
+We welcome everyone to contribute to the development and improvement of this project. If you have any ideas or suggestions, feel free to open an issue or join the discussion group.
 
-👉 [手工打造你的 AI 女友，新手入门教程【bilibili】](https://www.bilibili.com/video/BV1XnmFYLEJN/)
+Implemented Features
+Wi-Fi / ML307 Cat.1 4G
+BOOT key for wake-up and interruption, supporting both click and long-press triggers
+Offline voice wake-up using ESP-SR
+Streaming voice conversations (WebSocket or UDP protocol)
+Supports speech recognition in five languages: Mandarin, Cantonese, English, Japanese, and Korean using SenseVoice
+Speaker recognition to identify who is calling the AI's name using 3D Speaker
+Large model TTS (Text-to-Speech) using Volcano Engine or CosyVoice
+Large model LLM (Large Language Model) support for Qwen, DeepSeek, and Doubao
+Configurable prompts and voice tones (customizable roles)
+Short-term memory that summarizes each conversation round
+OLED / LCD screen to display signal strength or conversation content
+LCD support for displaying emoji images
+Multilingual support (Chinese, English)
+Hardware Section
+Breadboard Handmade Practice
+For detailed tutorials, refer to the Feishu documentation:
 
-## 项目目的
+👉 "XiaoZhi AI Chatbot Encyclopedia"
 
-本项目是一个开源项目，以 MIT 许可证发布，允许任何人免费使用，并可以用于商业用途。
+Below is the breadboard setup:
 
-我们希望通过这个项目，能够帮助更多人入门 AI 硬件开发，了解如何将当下飞速发展的大语言模型应用到实际的硬件设备中。无论你是对 AI 感兴趣的学生，还是想要探索新技术的开发者，都可以通过这个项目获得宝贵的学习经验。
-
-欢迎所有人参与到项目的开发和改进中来。如果你有任何想法或建议，请随时提出 Issue 或加入群聊。
-
-学习交流 QQ 群：376893254
-
-## 已实现功能
-
-- Wi-Fi / ML307 Cat.1 4G
-- BOOT 键唤醒和打断，支持点击和长按两种触发方式
-- 离线语音唤醒 [ESP-SR](https://github.com/espressif/esp-sr)
-- 流式语音对话（WebSocket 或 UDP 协议）
-- 支持国语、粤语、英语、日语、韩语 5 种语言识别 [SenseVoice](https://github.com/FunAudioLLM/SenseVoice)
-- 声纹识别，识别是谁在喊 AI 的名字 [3D Speaker](https://github.com/modelscope/3D-Speaker)
-- 大模型 TTS（火山引擎 或 CosyVoice）
-- 大模型 LLM（Qwen, DeepSeek, Doubao）
-- 可配置的提示词和音色（自定义角色）
-- 短期记忆，每轮对话后自我总结
-- OLED / LCD 显示屏，显示信号强弱或对话内容
-- 支持 LCD 显示图片表情
-- 支持多语言（中文、英文）
-
-## 硬件部分
-
-### 面包板手工制作实践
-
-详见飞书文档教程：
-
-👉 [《小智 AI 聊天机器人百科全书》](https://ccnphfhqs21z.feishu.cn/wiki/F5krwD16viZoF0kKkvDcrZNYnhb?from=from_copylink)
-
-面包板效果图如下：
-
-![面包板效果图](docs/wiring2.jpg)
-
-### 已支持的开源硬件
-
+Supported Open-Source Hardware
 - <a href="https://oshwhub.com/li-chuang-kai-fa-ban/li-chuang-shi-zhan-pai-esp32-s3-kai-fa-ban" target="_blank" title="立创·实战派 ESP32-S3 开发板">立创·实战派 ESP32-S3 开发板</a>
 - <a href="https://github.com/espressif/esp-box" target="_blank" title="乐鑫 ESP32-S3-BOX3">乐鑫 ESP32-S3-BOX3</a>
 - <a href="https://docs.m5stack.com/zh_CN/core/CoreS3" target="_blank" title="M5Stack CoreS3">M5Stack CoreS3</a>
@@ -102,36 +84,35 @@
   </a>
 </div>
 
-## 固件部分
+## Firmware Section  
+### Flashing Without a Development Environment  
 
-### 免开发环境烧录
+For beginners, it is recommended to skip setting up a development environment initially and directly flash the firmware using the pre-built version.  
 
-新手第一次操作建议先不要搭建开发环境，直接使用免开发环境烧录的固件。
+The default firmware connects to the official [xiaozhi.me](https://xiaozhi.me) server. Currently, individual users can register an account and use the Qwen real-time model for free.  
 
-固件默认接入 [xiaozhi.me](https://xiaozhi.me) 官方服务器，目前个人用户注册账号可以免费使用 Qwen 实时模型。
+👉 [Flash Firmware (No IDF Development Environment Required)](https://ccnphfhqs21z.feishu.cn/wiki/Zpz4wXBtdimBrLk25WdcXzxcnNS)  
+---
 
-👉 [Flash烧录固件（无IDF开发环境）](https://ccnphfhqs21z.feishu.cn/wiki/Zpz4wXBtdimBrLk25WdcXzxcnNS) 
+### Development Environment  
 
+- VSCode or cursor  
+- Install the ESP-IDF plugin and select SDK version 5.3 or higher  
+- Linux is preferred over Windows due to faster compilation speeds and fewer driver issues  
+- Follow Google C++ coding style—ensure compliance before submitting code  
 
-### 开发环境
+---
+## AI Agent Configuration  
 
-- Cursor 或 VSCode
-- 安装 ESP-IDF 插件，选择 SDK 版本 5.3 或以上
-- Linux 比 Windows 更好，编译速度快，也免去驱动问题的困扰
-- 使用 Google C++ 代码风格，提交代码时请确保符合规范
+If you already own a XiaoZhi AI chatbot device, you can log in to the [xiaozhi.me](https://xiaozhi.me) console for configuration.  
+👉 [Video Tutorial on Backend Operations (Old Interface)](https://www.bilibili.com/video/BV1jUCUY2EKM/)  
 
+---
+## Technical Principles & Private Deployment  
+👉 [A Detailed WebSocket Communication Protocol Document](docs/websocket.md)  
 
-## 智能体配置
-
-如果你已经拥有一个小智 AI 聊天机器人设备，可以登录 [xiaozhi.me](https://xiaozhi.me) 控制台进行配置。
-
-👉 [后台操作视频教程（旧版界面）](https://www.bilibili.com/video/BV1jUCUY2EKM/)
-
-## 技术原理与私有化部署
-
-👉 [一份详细的 WebSocket 通信协议文档](docs/websocket.md)
-
-在个人电脑上部署服务器，可以参考另一位作者同样以 MIT 许可证开源的项目 [xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)
+To deploy the server on a personal computer, refer to another open-source project under the MIT license:  
+[xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)
 
 ## Star History
 
